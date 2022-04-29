@@ -20,6 +20,14 @@ def addName(nameListAux):
 
 
 def searchName(searchedNameList):
+    """Search a name on the list
+
+    Args:
+        searchedNameList list: list that will search the name
+
+    Returns:
+        int: position of the name in the list
+    """
     name = str(input('Enter name to be searched: '))
 
     listLength = (int(len(searchedNameList)) // 2) - 1
@@ -38,15 +46,17 @@ def searchName(searchedNameList):
 
 
 if __name__ == '__main__':
-    # nameList = [] -- alterar apos o código ficar pronto
-    nameList = ['joao', 'maria', 'carla', 'joaquina', 'pedro', 'seis', 'sete']
+
+    nameList = []
+
+    selectionDict = {
+        1: addName,
+        2: searchName,
+    }
+
     while True:
         switch = int(input('''Choose a option:
         1- Add name to list
         2- Search for name in list
         '''))
-        if switch == 1:
-            addName(nameList)
-
-        if switch == 2:
-            searchName(nameList)
+        selectionDict[switch](nameList)
