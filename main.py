@@ -83,7 +83,7 @@ def insertName(insertNameList):
 
 if __name__ == '__main__':
 
-    nameList = ['caio','elisa','amanda','raphael','luiza']
+    nameList = []
 
     selectionDict = {
         1: addName,
