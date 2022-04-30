@@ -1,6 +1,5 @@
 """List Manipulation"""
 
-
 def addName(nameListAux):
     """Returns a list of names
 
@@ -58,15 +57,40 @@ def excludeName(nameToBeExcludedList):
     nameToBeExcludedList.remove(name)
 
 
+def insertName(insertNameList):
+    """insert name on disired position
+
+    Args:
+        insertNameList list: list
+
+    returns:
+        list: new list
+    """
+
+    name = str(input('Enter new name: '))
+    position = int(input('Enter name position: '))
+    insertNameList.append(name)
+    listLen = len(insertNameList) - 1
+
+    while listLen > position:
+        aux = insertNameList[listLen - 1]
+        insertNameList[listLen - 1] = insertNameList[listLen]
+        insertNameList[listLen] = aux
+        listLen -= 1
+
+    return insertNameList
+
+
 if __name__ == '__main__':
 
-    nameList = []
+    nameList = ['caio','elisa','amanda','raphael','luiza']
 
     selectionDict = {
         1: addName,
         2: searchName,
         3: excludeName,
         4: print,
+        5: insertName,
     }
 
     while True:
@@ -75,5 +99,6 @@ if __name__ == '__main__':
         2- Search for name in list
         3- Enter a name to be excluded from list
         4- Print list
+        5- Insert name on selected position (0 - n)
         '''))
         selectionDict[switch](nameList)
