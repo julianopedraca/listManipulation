@@ -1,4 +1,5 @@
-# List Manipulation
+"""List Manipulation"""
+
 
 def addName(nameListAux):
     """Returns a list of names
@@ -45,6 +46,18 @@ def searchName(searchedNameList):
         listLength -= 1
 
 
+def excludeName(nameToBeExcludedList):
+    """call function remove to exclude selected name
+
+    Args:
+        nameToBeExcludedList list: list that will remove desired name
+    """
+
+    name = str(input('Wich name do you want to exclude? '))
+
+    nameToBeExcludedList.remove(name)
+
+
 if __name__ == '__main__':
 
     nameList = []
@@ -52,11 +65,15 @@ if __name__ == '__main__':
     selectionDict = {
         1: addName,
         2: searchName,
+        3: excludeName,
+        4: print,
     }
 
     while True:
         switch = int(input('''Choose a option:
         1- Add name to list
         2- Search for name in list
+        3- Enter a name to be excluded from list
+        4- Print list
         '''))
         selectionDict[switch](nameList)
